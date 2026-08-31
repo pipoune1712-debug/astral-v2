@@ -20,6 +20,7 @@ jobs:
 
     - name: Compile Driver
       run: |
+        call "C:\Program Files (x86)\Windows Kits\10\bin\10.0.22600.0\x64\setenv.cmd" drivers
         cl /nologo /O2 /W3 /Gy /Gw /kernel /std:c++17 /c main.cpp registry.cpp spoofer.cpp utils.cpp
         link /nologo /driver /entry:DriverEntry /subsystem:native /nodefaultlib /out:astral_drv.sys main.obj registry.obj spoofer.obj utils.obj ntoskrnl.lib hal.lib libcntpr.lib
 
