@@ -20,7 +20,7 @@ jobs:
 
     - name: Compile Driver
       run: |
-        cl /nologo /O2 /W3 /Gy /Gw /kernel /c main.cpp registry.cpp spoofer.cpp utils.cpp
+        cl /nologo /O2 /W3 /Gy /Gw /kernel /std:c++17 /c main.cpp registry.cpp spoofer.cpp utils.cpp
         link /nologo /driver /entry:DriverEntry /subsystem:native /out:astral_drv.sys main.obj registry.obj spoofer.obj utils.obj
 
     - name: Upload Driver Artifact
